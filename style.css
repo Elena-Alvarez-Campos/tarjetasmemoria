@@ -1,0 +1,24 @@
+body {
+    background-color:antiquewhite;
+}
+article{
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    
+}   
+#tablero{
+    height: 70vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap:1vh
+}
+.carta{
+    background-color: aliceblue;
+    text-align: center;
+    align-content: center;
+}
+.derecho{
+    color: aqua;
+}
