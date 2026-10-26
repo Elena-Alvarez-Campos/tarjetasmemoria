@@ -1,18 +1,21 @@
 
 let cartas =document.querySelectorAll('.carta')
 console.log(cartas)
+let posibilidades=[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,0,0]
 for (let cadaCarta of cartas){
     console.log(cadaCarta)
 }
 
+
 console.log(cartas.length)
 cartas.forEach(carta => {
     carta.addEventListener('click', () =>{
-        let cartavalor = carta.textContent;
-        alert(cartavalor)
+        carta.classList.toggle("derecho")
     })
-    alert("a")
 });
+
+
+
 /*function vuelta(e) {
     alert('hola')
     console.log(e)
