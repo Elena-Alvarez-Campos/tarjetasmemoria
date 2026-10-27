@@ -11,9 +11,23 @@ cartas.forEach(carta => {
     carta.textContent=posibilidades[posicionAsgnado]
     posibilidades.splice(posicionAsgnado,1)
     carta.addEventListener('click', () =>{
-        carta.classList.toggle("derecho")
+        carta.contains('.completado')== true ? console.log("pringado") : carta.classList.toggle("derecho")
+        
         if(document.getElementsByClassName('derecho').length==2){
-            document.getElementsByClassName('derecho')[0].textContent==document.getElementsByClassName('derecho')[1].textContent ? console.log(true) : console.log(false)
+            if(document.getElementsByClassName('derecho')[0].textContent==document.getElementsByClassName('derecho')[1].textContent){
+                console.log(true)
+                //Añadir clase completado
+                document.getElementsByClassName('derecho')[0].classList.add('completado')
+                document.getElementsByClassName('derecho')[1].classList.add('completado')
+                //quitar clase derecho
+                document.getElementsByClassName('derecho')[0].classList.remove('derecho')
+                document.getElementsByClassName('derecho')[0].classList.remove('derecho')
+            
+            }else{
+                console.log(false)
+            document.getElementsByClassName('derecho')[0].classList.toggle("derecho")
+            document.getElementsByClassName('derecho')[0].classList.toggle("derecho")
+            }
         }
     })
 });
