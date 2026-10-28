@@ -8,7 +8,7 @@ article{
     
 }   
 #tablero{
-    height: 70vh;
+    min-height: 80vh;
     width: 100%;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
