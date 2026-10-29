@@ -1,0 +1,15 @@
+services:
+  php:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    container_name: servidor-php
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - ./:/var/www/html
+    env_file:
+      - .env
+volumes:
+  html: {}

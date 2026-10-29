@@ -1,6 +1,22 @@
 
 //luxon
 //const { DateTime, Interval } = require("luxon");
+if(window.location.pathname=='/' || window.location.pathname=='/index.php'){
+    let button = document.querySelector('button');
+    
+    button.addEventListener("click", () => {
+        console.log(document.querySelector('input').value)
+        if(document.querySelector('input').value.trim()==""){
+            console.log(false)
+        }
+        /*
+        let player=prompt('Escribe tu nombre de usuario')
+        if(player!=null){
+            window.location.href='juego.php'
+        }*/
+    });
+}
+
 
 let cartas =document.querySelectorAll('.carta')
 console.log(cartas)
@@ -15,10 +31,10 @@ function recuento() {
     if(document.getElementById('tiempo').textContent==-1){
         let aviso=(confirm("Fin del juego\n¿Volver a jugar?")) 
         if (aviso==true) {
-            window.location.href = 'index.html'
+            window.location.href = 'juego.php'
 
         }else{
-            window.location.href = 'home.html'
+            window.location.href = 'index.php'
 
         }
     }    
@@ -56,38 +72,47 @@ cartas.forEach(carta => {
         } else{
             carta.classList.toggle('derecho')}
         //Comprobar que 2 cartas son iguales
-            timerId2= setInterval(() => emparejados(), 1000);
+            emparejados()
+             
 
             //Indicador de fin de juego
-        if(document.querySelectorAll('.completado').length==20){
+        if(document.querySelectorAll('.completado').length==30){
+            score+=40
             console.log("JUEGO TERMINADO!!!!!!!")
         }
         
     })
 });
+
 function emparejados() {
     if(document.getElementsByClassName('derecho').length==2){
+        let listaCartasDerecho=document.getElementsByClassName('derecho')
             //setTimeout()
             //cartas coinciden
-            if(document.getElementsByClassName('derecho')[0].textContent==document.getElementsByClassName('derecho')[1].textContent){
+            if(listaCartasDerecho[0].textContent==listaCartasDerecho[1].textContent){
                 actualizaPuntos(true)
                 //Añadir clase completado
 
-                document.getElementsByClassName('derecho')[0].classList.add('completado')
-                document.getElementsByClassName('derecho')[1].classList.add('completado')
+                listaCartasDerecho[0].classList.add('completado')
+                listaCartasDerecho[1].classList.add('completado')
                 //quitar clase derecho
-                document.getElementsByClassName('derecho')[0].classList.remove('derecho')
-                document.getElementsByClassName('derecho')[0].classList.remove('derecho')
+                listaCartasDerecho[0].classList.remove('derecho')
+                listaCartasDerecho[0].classList.remove('derecho')
             //cartas no coinciden
             }else{
-                actualizaPuntos(false)
-                console.log(false)
-                document.getElementsByClassName('derecho')[0].textContent=("")
-                document.getElementsByClassName('derecho')[1].textContent=("")
-                document.getElementsByClassName('derecho')[0].classList.toggle("derecho")
-                document.getElementsByClassName('derecho')[0].classList.toggle("derecho")
+                setTimeout(() => malapareja(listaCartasDerecho), 550);
+
+                
             }
         }
+}
+function malapareja(paralistaCartas) {
+    actualizaPuntos(false)
+                console.log(false)
+                paralistaCartas[0].textContent=("")
+                paralistaCartas[1].textContent=("")
+                paralistaCartas[0].classList.toggle("derecho")
+                paralistaCartas[0].classList.toggle("derecho")
 }
 //true: suman puntos
 //false: restan puntos

@@ -44,7 +44,7 @@
 
         </div>
         <div id="foot">
-            <div>Nombre Usuario <div>MacaPaca</div></div>
+            <div>Nombre Usuario <div>$_POST['nombretxt']</div></div>
             <div>Puntuación <div id="score">000</div></div>
             <div>Tiempo <div id="tiempo">60</div></div>
         </div>

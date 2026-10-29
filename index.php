@@ -7,7 +7,7 @@
     <link rel='stylesheet' href='style.css'>
 </head>
 <body>
-    <script src="script.js"></script>
+   
     <h2>PANTALLA DE INICIO</h2>
     <p>Versión sin acabar :P</p>
     <article id="tabla">
@@ -26,9 +26,14 @@
         <div class="fila">5
             <div id="nombre5" class="nombre">segfsweugb</div>
         </div>
-
+        
     </article>
-    <p>Toma el juego y déjame programar anda -> <a href="index.html">¡Gracias!</a></p>
-    <img src="https://static.wikia.nocookie.net/pikmin/images/5/54/P4_Blue_Pikmin.png/revision/latest/thumbnail/width/360/height/450?cb=20230818163738">
+    <form name=formulario method="post" action="juego.php">
+        <input type="text" name="nombrePlayer" id="nombre" placeholder="Escribe tu nombre">
+        <button id="button">¡A JUGAR!</button>
+    </form>
+    <p>Escribe un nombre para poder jugar</p>
+    <!-- <img src="https://static.wikia.nocookie.net/pikmin/images/5/54/P4_Blue_Pikmin.png/revision/latest/thumbnail/width/360/height/450?cb=20230818163738"> -->
+    <script src="script.js"></script>
 </body>
 </html>
