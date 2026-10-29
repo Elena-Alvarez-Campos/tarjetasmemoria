@@ -33,3 +33,16 @@ article{
     justify-content: space-around;
     margin-top: 3vh;
 }
+#tabla{
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+}
+.fila{
+    display: flex;
+    flex-direction: row;
+    padding-right: 3vh;
+}
+.nombre{
+    padding-left: 3vh;
+}

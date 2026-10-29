@@ -9,18 +9,23 @@ let imgsources=[];
 let score=0
 let timer=59
 let valoresOrdenados=[]
-let timerId = setInterval(() => recuento(), 1000);
+let timerId 
 function recuento() {
     document.getElementById('tiempo').textContent= timer--
     if(document.getElementById('tiempo').textContent==-1){
-        let aviso=(alert("Fin del juego"))
-        console.log(aviso)
+        let aviso=(confirm("Fin del juego\n¿Volver a jugar?")) 
+        if (aviso==true) {
+            window.location.href = 'index.html'
+
+        }else{
+            window.location.href = 'home.html'
+
+        }
     }    
 }
+let carta1=true
+let timerId2
 /*
-// Source - https://stackoverflow.com/a/77099094
-// Posted by Barmar
-// Retrieved 2026-10-28, License - CC BY-SA 4.0
 
 var editButton = document.createElement('button');
 var editImage = document.createElement('img');
@@ -38,6 +43,10 @@ cartas.forEach(carta => {
     posibilidades.splice(posicionAsgnado,1)
     //FUNCIÓN AL PULSAR
     carta.addEventListener('click', () =>{
+        if(carta1==true){
+            timerId== setInterval(() => recuento(), 1000);
+            carta1=false
+        }
         //console.log(carta.id)
         carta.textContent=valoresOrdenados[carta.id]
         //si está al derecho o completada no se dá la vuelta
@@ -47,7 +56,17 @@ cartas.forEach(carta => {
         } else{
             carta.classList.toggle('derecho')}
         //Comprobar que 2 cartas son iguales
-        if(document.getElementsByClassName('derecho').length==2){
+            timerId2= setInterval(() => emparejados(), 1000);
+
+            //Indicador de fin de juego
+        if(document.querySelectorAll('.completado').length==20){
+            console.log("JUEGO TERMINADO!!!!!!!")
+        }
+        
+    })
+});
+function emparejados() {
+    if(document.getElementsByClassName('derecho').length==2){
             //setTimeout()
             //cartas coinciden
             if(document.getElementsByClassName('derecho')[0].textContent==document.getElementsByClassName('derecho')[1].textContent){
@@ -69,12 +88,7 @@ cartas.forEach(carta => {
                 document.getElementsByClassName('derecho')[0].classList.toggle("derecho")
             }
         }
-        //Indicador de fin de juego
-        if(document.querySelectorAll('.completado').length==20){
-            console.log("JUEGO TERMINADO!!!!!!!")
-        }
-    })
-});
+}
 //true: suman puntos
 //false: restan puntos
 //positivo ? es un número positivo->true :  false
