@@ -1,10 +1,19 @@
 body {
-    background-color:rgb(35, 98, 88);
+    
+    background-color:#470d2d;
+    font-family: "Poppins", sans-serif;
+    color: #fab1d9
+}
+#indexBody{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 article{
-    border-color: black;
+    padding: 2vh 5vh;
     border-width: 1px;
     border-style: solid;
+    color: #470d2d;
     
 }   
 #tablero{
@@ -12,14 +21,15 @@ article{
     width: 100%;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    gap:1vh
+    gap:1.5vh
 }
 .carta{
-    background-color: aliceblue;
+    background-color: whitesmoke;
     text-align: center;
     align-content: center;
     border-radius: 2vh;
-    
+    padding: 0;
+    margin: 0;
 }
 .derecho{
     background-color: aqua;
@@ -28,7 +38,7 @@ article{
     background-color: gray;
 }
 #foot{
-    background-color: aliceblue;
+    background-color: whitesmoke;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -37,13 +47,43 @@ article{
 #tabla{
     display: flex;
     flex-direction: column;
-    background-color: aliceblue;
+    background-color: #fab1d9;
+    color:#470d2d;
+    width: 40%;
+    border-radius: 2vh;
+    padding:2vh ;
+    margin-bottom: 2vh;
+
+}
+@media (max-width: 600px) {
+    #tabla{
+        width: 70%;
+    }
+    article{
+        padding: 0.5vh;
+    }
 }
 .fila{
     display: flex;
     flex-direction: row;
     padding-right: 3vh;
+    justify-content: space-between;
 }
 .nombre{
     padding-left: 3vh;
+}
+input{
+    border-color: #fab1d9;
+    height: 3vh;
+    width: 20vh;
+    border-radius: 1vh;
+}
+button{
+    height: 5vh;
+    width: 20vh;
+    background-color: #fab1d915;
+    border-color: #fab1d9;
+    color: #fab1d9;
+    border-radius: 1vh;
+    font-family: "Poppins",sans-serif;
 }
