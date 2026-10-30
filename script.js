@@ -123,7 +123,33 @@ function actualizaPuntos(positivo) {
     positivo==true ? score+=2 : score--
     document.getElementById('score').textContent=score
 }
-function finJuego() {
+async function finJuego() {
+    let datosjugador={
+        id: "",
+        nombre: document.getElementById('nombrePlayerEscrito'),
+        score: score
+    }
+    try {
+        const response = await fetch('adminDB.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datosjugador)
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error ?? 'Error en la petición');
+        }
+
+        console.log(data);
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+
     //let nuevosDatos = []
     let aviso=(confirm("Fin del juego\n¿Volver a jugar?\nScore: "+score)) 
     if (aviso==true) {
