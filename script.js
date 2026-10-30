@@ -121,14 +121,29 @@ function malapareja(id1,id2) {
 //positivo ? es un número positivo->true :  false
 function actualizaPuntos(positivo) {
     positivo==true ? score+=2 : score--
+    if(score<0){score=0}
     document.getElementById('score').textContent=score
 }
-async function finJuego() {
-    let datosjugador={
-        id: "",
-        nombre: document.getElementById('nombrePlayerEscrito'),
-        score: score
+function toJSON(){
+        return{
+            nombre: document.getElementById('nombrePlayerEscrito').textContent,
+            score: score
+        }
     }
+async function guardar(){
+    try {
+        let respuesta = await fetch('adminDB.php',{
+            method: 'POST',
+            body: JSON.stringify({nombre:document.getElementById('nombrePlayerEscrito').textContent, score:score})
+        })
+        return respuesta.ok;
+    } catch (error) {
+        return false;
+    }
+}
+async function finJuego() {
+    
+    /*
     try {
         const response = await fetch('adminDB.php', {
             method: 'POST',
@@ -137,9 +152,9 @@ async function finJuego() {
             },
             body: JSON.stringify(datosjugador)
         });
-
-        const data = await response.json();
-
+        console.log("hola1")
+        //const data = await response.json();
+        console.log("hola2")
         if (!response.ok) {
             throw new Error(data.error ?? 'Error en la petición');
         }
@@ -148,7 +163,7 @@ async function finJuego() {
 
     } catch (error) {
         console.error('Error:', error);
-    }
+    }*/
 
     //let nuevosDatos = []
     let aviso=(confirm("Fin del juego\n¿Volver a jugar?\nScore: "+score)) 

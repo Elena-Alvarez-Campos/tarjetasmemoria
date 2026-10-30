@@ -25,11 +25,6 @@ try {
         exit;
     }
 
-    echo json_encode([
-        'ok' => true,
-        'mensaje' => 'Cliente recibido correctamente.'
-    ]);
-
 } catch (JsonException $e) {
     http_response_code(400);
 

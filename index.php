@@ -16,23 +16,23 @@
     <article id="tabla">
         <div class="fila">1
             <div id="nombre1" class="nombre">Pepe</div>
-            <div>20</div>
+            <div>50</div>
         </div>
         <div class="fila">2
-            <div id="nombre2" class="nombre">MacaPaca</div>
-            <div>20</div>
+            <div id="nombre2" class="nombre">Marisa</div>
+            <div>30</div>
         </div>
         <div class="fila">3
-            <div id="nombre3" class="nombre">miku</div>
+            <div id="nombre3" class="nombre">Ana</div>
             <div>20</div>
         </div>
         <div class="fila">4
-            <div id="nombre4" class="nombre">imolnyhereforpikmin</div>
-            <div>20</div>
+            <div id="nombre4" class="nombre">Pepa</div>
+            <div>10</div>
         </div>
         <div class="fila">5
-            <div id="nombre5" name="prueba" class="nombre">segfsweugb</div>
-            <div>20</div>
+            <div id="nombre5" name="prueba" class="nombre">Blas</div>
+            <div>2</div>
         </div>
         
     </article>
@@ -45,11 +45,7 @@
     <script src="script.js"></script>
     <div>
         <?php
-        if (empty($_POST['nombrePlayer'])) {
-            echo 'mal';
-        }else{
-            echo 'bien';
-        }   
+          
     ?>
     <div>
     
