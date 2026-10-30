@@ -1,7 +1,7 @@
 
-//luxon
-//const { DateTime, Interval } = require("luxon");
 //console.log(document.getElementById('nombrePlayerEscrito').textContent)
+
+
 if(window.location.pathname=='/' || window.location.pathname=='/index.php'){
 
     let button = document.querySelector('button');

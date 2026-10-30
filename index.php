@@ -36,7 +36,7 @@
         </div>
         
     </article>
-    <form name=formulario method="POST"  >
+    <form name=formulario method="POST"  action="juego.php">
         <input type="text" name="nombrePlayer" id="nombre" placeholder="Escribe tu nombre">
         <button id="button" >¡A JUGAR!</button>
     </form>
@@ -45,15 +45,13 @@
     <script src="script.js"></script>
     <div>
         <?php
-    if (empty($_POST['nombrePlayer'])) {
-        echo 'mal';
-    }else{
-        echo 'bien';
-        header('Location: /juego.php');
-        die();
-    }
+        if (empty($_POST['nombrePlayer'])) {
+            echo 'mal';
+        }else{
+            echo 'bien';
+        }   
     ?>
     <div>
     
 </body>
-</html>scm-history-item:c%3A%5CUsers%5Celiac%5COneDrive%5CEscritorio%5C2CS%5Ccliente%5Ctarjetas?%7B%22repositoryId%22%3A%22scm0%22%2C%22historyItemId%22%3A%2248f09ad0496f3711e53fde156026b7d4809abb90%22%2C%22historyItemParentId%22%3A%22846b2fd2bc458ce23e806aa30b5ec3c4b352bbbb%22%2C%22historyItemDisplayId%22%3A%2248f09ad%22%7D
+</html>
